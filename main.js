@@ -18,19 +18,34 @@ export var newsList = [
 
 export function search() {
   //inputValue is the variable that contains the search string
-  const inputValue = document.getElementById("search-input").value;
+  //const inputValue = document.getElementById("search-input").value;
 
   //Write your code here for the search function
+  const inputValue = "What films should an aspiring journalist watch?";
 
-  return newsList;
+  let searchResult = [];
+  searchResult = newsList.filter((word) => word.toLowerCase().includes(inputValue.toLowerCase()));
+
+  if(searchResult.length === 0){
+    //alert('Search not found');
+  }
+  else
+  {
+    return searchResult;
+  }
+
 }
 
 export function sort(type) {
   if (type == "ascending") {
     //Write your code here for sorting (ascending)
+    const result = newsList.sort();
+    return result;
   } else {
     //Write your code here for sorting (descending)
+    const defaultArray = newsList.sort();
+    const result = defaultArray.reverse();
+    return result;
   }
 
-  return newsList;
 }
